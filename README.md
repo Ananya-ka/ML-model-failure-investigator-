@@ -9,7 +9,6 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-Backend%20API-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-Vite%20Dashboard-61DAFB.svg?logo=react&logoColor=black)](https://reactjs.org/)
 [![MLflow](https://img.shields.io/badge/MLflow-Registry%20%26%20Tracking-0194E2.svg?logo=mlflow&logoColor=white)](https://mlflow.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 [Live Architecture](#-system-architecture) • [Diagnostic Modes](#-supported-failure-modes) • [Quick Start](#-quick-start) • [Evaluation Suite](#-evaluation--benchmarking)
 
@@ -237,9 +236,3 @@ Following our [Fine-Tuning Decision Report](FINE_TUNING_DECISION.md), the prompt
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Ananya-ka/ML-model-failure-investigator-/issues).
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
