@@ -1,0 +1,72 @@
+[
+  {
+    "scenario_id": "sc_001",
+    "failure_mode": "control",
+    "predicted_cause": "control",
+    "is_correct": true,
+    "confidence": 1.0,
+    "latency_sec": 0.44490504264831543,
+    "evidence_correct": true,
+    "reasoning": "No failure injected. Performance degradation is due to normal statistical noise."
+  },
+  {
+    "scenario_id": "sc_002",
+    "failure_mode": "feature_drift",
+    "predicted_cause": "feature_drift",
+    "is_correct": true,
+    "confidence": 0.95,
+    "latency_sec": 0.21353387832641602,
+    "evidence_correct": true,
+    "reasoning": "Upstream feature drift detected. The distribution of input feature 'income_band' shifted downward significantly, with no code edits or version registry changes found."
+  },
+  {
+    "scenario_id": "sc_003",
+    "failure_mode": "bad_model_deploy",
+    "predicted_cause": "bad_model_deploy",
+    "is_correct": true,
+    "confidence": 0.95,
+    "latency_sec": 0.2157909870147705,
+    "evidence_correct": true,
+    "reasoning": "Bad model deployment detected. Model version 2 was trained with shuffled labels, resulting in random predictions and a corresponding drop in accuracy compared to version 1."
+  },
+  {
+    "scenario_id": "sc_004",
+    "failure_mode": "pipeline_bug",
+    "predicted_cause": "pipeline_bug",
+    "is_correct": true,
+    "confidence": 0.98,
+    "latency_sec": 0.5918221473693848,
+    "evidence_correct": true,
+    "reasoning": "Transformation bug in credit_score processing detected. A git commit (author Ananya-ka) modified src/pipeline/processing.py to corrupt credit_score to 0, which was corroborated by feature store drift showing zero values."
+  },
+  {
+    "scenario_id": "sc_005",
+    "failure_mode": "label_shift",
+    "predicted_cause": "label_shift",
+    "is_correct": true,
+    "confidence": 0.95,
+    "latency_sec": 1.6188302040100098,
+    "evidence_correct": true,
+    "reasoning": "Label distribution shift detected. Average true labels (approval rate) dropped by more than 15% between baseline and target periods, indicating a macroeconomic shift, with features and model configurations remaining unchanged."
+  },
+  {
+    "scenario_id": "sc_006",
+    "failure_mode": "serving_skew",
+    "predicted_cause": "serving_skew",
+    "is_correct": true,
+    "confidence": 0.95,
+    "latency_sec": 0.4089829921722412,
+    "evidence_correct": true,
+    "reasoning": "Training/serving preprocessing skew detected. Feature store drift on 'debt_to_income' shows a massive shift (value multiplier mismatch), indicating features were scaled as percentage (x100) in serving instead of decimal."
+  },
+  {
+    "scenario_id": "sc_007",
+    "failure_mode": "stale_feature",
+    "predicted_cause": "stale_feature",
+    "is_correct": true,
+    "confidence": 0.95,
+    "latency_sec": 0.21624398231506348,
+    "evidence_correct": true,
+    "reasoning": "Stale feature store records detected. Feature age lag check shows that online serving queries returned borrower records that are over 2 days old (stuck in baseline/July timeframe)."
+  }
+]

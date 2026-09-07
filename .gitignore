@@ -1,0 +1,32 @@
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Databases & local state
+*.db
+mlflow.db
+ml_failure_investigator.db
+mlruns/
+scenarios/sc_*/mlflow.db
+scenarios/sc_*/ml_failure_investigator.db
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Environment files
+.env
+!.env.example
+
+# OS files
+.DS_Store
+.DS_Store?
+Thumbs.db

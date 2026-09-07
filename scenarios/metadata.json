@@ -1,0 +1,140 @@
+[
+  {
+    "scenario_id": "sc_001",
+    "injected_failure": "control",
+    "injected_feature": null,
+    "injection_date": "2026-08-08",
+    "true_root_cause": "No failure injected. Performance degradation is due to normal statistical noise.",
+    "evidence_should_include": []
+  },
+  {
+    "scenario_id": "sc_002",
+    "injected_failure": "feature_drift",
+    "injected_feature": "income_band",
+    "injection_date": "2026-08-03",
+    "true_root_cause": "Upstream feature drift. The distribution of input feature 'income_band' shifted downward.",
+    "evidence_should_include": [
+      "feature_store_drift_stat"
+    ]
+  },
+  {
+    "scenario_id": "sc_003",
+    "injected_failure": "bad_model_deploy",
+    "injected_feature": null,
+    "injection_date": "2026-08-03",
+    "true_root_cause": "Bad model deployment. Model version 2 was trained with shuffled labels, resulting in random predictions.",
+    "evidence_should_include": [
+      "model_registry_diff"
+    ]
+  },
+  {
+    "scenario_id": "sc_004",
+    "injected_failure": "pipeline_bug",
+    "injected_feature": "credit_score",
+    "injection_date": "2026-08-08",
+    "true_root_cause": "Transformation bug in credit_score processing causing a subset of values to corrupt to 0.",
+    "evidence_should_include": [
+      "git_commit_hash",
+      "feature_store_drift_stat"
+    ]
+  },
+  {
+    "scenario_id": "sc_005",
+    "injected_failure": "label_shift",
+    "injected_feature": null,
+    "injection_date": "2026-08-05",
+    "true_root_cause": "Label distribution shift. Macro-economic changes caused a drop in borrower approval rates.",
+    "evidence_should_include": [
+      "label_drift_stat"
+    ]
+  },
+  {
+    "scenario_id": "sc_006",
+    "injected_failure": "serving_skew",
+    "injected_feature": "debt_to_income",
+    "injection_date": "2026-08-04",
+    "true_root_cause": "Training/serving skew. Preprocessing mismatch where debt_to_income is scaled as percentage (x100) instead of decimal.",
+    "evidence_should_include": [
+      "feature_store_drift_stat"
+    ]
+  },
+  {
+    "scenario_id": "sc_007",
+    "injected_failure": "stale_feature",
+    "injected_feature": null,
+    "injection_date": "2026-08-04",
+    "true_root_cause": "Stale features. Feature store ingestion pipeline crashed, serving outdated borrower features from the historical training period.",
+    "evidence_should_include": [
+      "feature_store_staleness_stat"
+    ]
+  },
+  {
+    "scenario_id": "sc_008",
+    "injected_failure": "control",
+    "injected_feature": null,
+    "injection_date": "2026-08-04",
+    "true_root_cause": "No failure injected. Performance degradation is due to normal statistical noise.",
+    "evidence_should_include": []
+  },
+  {
+    "scenario_id": "sc_009",
+    "injected_failure": "feature_drift",
+    "injected_feature": "income_band",
+    "injection_date": "2026-08-08",
+    "true_root_cause": "Upstream feature drift. The distribution of input feature 'income_band' shifted downward.",
+    "evidence_should_include": [
+      "feature_store_drift_stat"
+    ]
+  },
+  {
+    "scenario_id": "sc_010",
+    "injected_failure": "bad_model_deploy",
+    "injected_feature": null,
+    "injection_date": "2026-08-03",
+    "true_root_cause": "Bad model deployment. Model version 2 was trained with shuffled labels, resulting in random predictions.",
+    "evidence_should_include": [
+      "model_registry_diff"
+    ]
+  },
+  {
+    "scenario_id": "sc_011",
+    "injected_failure": "pipeline_bug",
+    "injected_feature": "credit_score",
+    "injection_date": "2026-08-08",
+    "true_root_cause": "Transformation bug in credit_score processing causing a subset of values to corrupt to 0.",
+    "evidence_should_include": [
+      "git_commit_hash",
+      "feature_store_drift_stat"
+    ]
+  },
+  {
+    "scenario_id": "sc_012",
+    "injected_failure": "label_shift",
+    "injected_feature": null,
+    "injection_date": "2026-08-08",
+    "true_root_cause": "Label distribution shift. Macro-economic changes caused a drop in borrower approval rates.",
+    "evidence_should_include": [
+      "label_drift_stat"
+    ]
+  },
+  {
+    "scenario_id": "sc_013",
+    "injected_failure": "serving_skew",
+    "injected_feature": "debt_to_income",
+    "injection_date": "2026-08-07",
+    "true_root_cause": "Training/serving skew. Preprocessing mismatch where debt_to_income is scaled as percentage (x100) instead of decimal.",
+    "evidence_should_include": [
+      "feature_store_drift_stat"
+    ]
+  },
+  {
+    "scenario_id": "sc_014",
+    "injected_failure": "stale_feature",
+    "injected_feature": null,
+    "injection_date": "2026-08-03",
+    "true_root_cause": "Stale features. Feature store ingestion pipeline crashed, serving outdated borrower features from the historical training period.",
+    "evidence_should_include": [
+      "feature_store_staleness_stat"
+    ]
+  }
+]
