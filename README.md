@@ -76,32 +76,40 @@ The system simulates and diagnoses **7 distinct failure classes**:
 ## 🏗️ System Architecture
 
 ```mermaid
-graph TD
-    UI[🖥️ React + Vite Dashboard] <--> API[⚡ FastAPI Backend]
+flowchart TD
+    UI["🖥️ React Dashboard"] <--> API["⚡ FastAPI Backend"]
     
-    subgraph Agentic Reasoning Engine [LangGraph StateGraph]
-        H[Hypotheses Formulation] --> G[Evidence Gathering]
-        G --> E[Hypotheses Elimination]
-        E --> S[Root Cause Synthesis]
+    API --> H
+    
+    subgraph Engine ["🧠 LangGraph Agentic Workflow"]
+        H["1. Hypotheses Formulation"] --> G["2. Evidence Gathering"]
+        G --> E["3. Hypotheses Elimination"]
+        E --> S["4. Root Cause Synthesis"]
     end
     
-    subgraph Diagnostic Tool Suite
-        T1[📊 Feature Store Drift KS-Test]
-        T2[📦 MLflow Model Registry Diff]
-        T3[📜 Git Commit & Diff Inspector]
-        T4[📉 Label Distribution Shift]
-        T5[⏱️ Feature Store Staleness Scan]
+    subgraph Tools ["🔬 Diagnostic Tool Suite"]
+        T1["📊 Feature Store Drift KS-Test"]
+        T2["📦 MLflow Registry Comparison"]
+        T3["📜 Git Commit & Diff Inspector"]
+        T4["📉 Label Distribution Shift"]
+        T5["⏱️ Feature Staleness Scan"]
     end
 
-    subgraph Data Stores
-        DB[(SQLite Feature Store & Logs)]
-        MLF[(MLflow Run Registry)]
-        GIT[(Repository Version Control)]
+    subgraph Stores ["💾 Data Stores"]
+        DB[("SQLite Feature Store & Logs")]
+        MLF[("MLflow Tracking & Registry")]
+        GIT[("Repository Git Logs")]
     end
 
-    API --> Agentic Reasoning Engine
-    G --> Diagnostic Tool Suite
-    T1 & T4 & T5 --> DB
+    G --> T1
+    G --> T2
+    G --> T3
+    G --> T4
+    G --> T5
+
+    T1 --> DB
+    T4 --> DB
+    T5 --> DB
     T2 --> MLF
     T3 --> GIT
 ```
